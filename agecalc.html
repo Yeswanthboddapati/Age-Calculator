@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            border: 1px solid yellowgreen;
+            border-radius: 5px;
+            box-shadow: 2px 2px 15px 2px;
+        }
+        input[type="datetime-local"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            outline: none;
+        }
+        input[type="datetime-local"]:focus {
+            border-color: #4CAF50;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            background-color: burlywood;
+            border: 1px solid goldenrod;
+            border-radius: 5px;
+            box-shadow: 2px 2px 15px 2px;
+            font-weight: 800;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .age-display {
+            display: block;
+            margin: 20px auto;
+            max-width: 90%;
+            width: 150px;
+            font-size: medium;
+            font-family: Arial, sans-serif;
+            color: #252324;
+            background-color: #3498db;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 2px 2px 15px 2px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body style="padding: 15%;">
+    <center>
+        <div>
+            <input type="datetime-local" id="time" required><br><br><br>
+            <button onclick="calc()">Calculate</button>
+        </div>
+    </center>
+    <script>
+        function calc() {
+            var date = document.getElementById("time").value;
+
+            let birth = new Date(date)
+            const present = new Date();
+            const Age = present.getFullYear() - birth.getFullYear();
+            console.log(Age);
+
+            const span = document.createElement("span");
+            span.className = "age-display";
+            span.textContent = "Age is: " + Age;
+            document.body.appendChild(span);
+
+        }
+    </script>
+</body>
+</html>
